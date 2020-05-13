@@ -1,100 +1,102 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.header_footer')
+@section('content')
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!---End header-->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<br>
+<main>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7" id="page-banner">
+                <div>
+                    <img class=" img" alt="" src="{{ asset('img/banner/banner1.jpg')}}">
                 </div>
             </div>
+
+            <div class=" col-5">
+
+                <img class="img1" alt="" src="{{ asset('img/banner/banner2.png')}}">
+
+                <img class="img1" alt="" src="{{ asset('img/banner/banner3.png')}}">
+            </div>
         </div>
-    </body>
-</html>
+
+    </div>
+</main>
+
+<div class="filter">
+    <div class="manu manu14">
+        <a href="/dtdd-apple-iphone" data-id="80" class=""><img src="{{ asset('img/logo/iphone.jpg')}}"></a>
+        <a href="/dtdd-samsung" data-id="2" class=""><img src="{{ asset('img/logo/samsung.jpg')}}"></a>
+        <a href="/dtdd-oppo" data-id="1971" class=""><img src="{{ asset('img/logo/oppo.png')}}"></a>
+        <a href="/dtdd-xiaomi" data-id="2235" class=""><img src="{{ asset('img/logo/xiaomi.jpg')}}"></a>
+        <a href="/dtdd-vivo" data-id="2236" class=""><img src="{{ asset('img/logo/xiaomi.jpg')}}"></a>
+
+        <a href="/dtdd-vsmart" data-id="17566" class=""><img src="{{ asset('img/logo/vsmart.png')}}"></a>
+
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <label style="font-weight: bold;">Chọn mức giá</label>
+        &nbsp; &nbsp;
+        <form action="/phanloai" method="get">
+            <div class="input-group">
+                <input type="hidden" name="search" class="form-control" value="5to30">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary">Từ 5 đến 30 triệu</button>
+                </span>
+            </div>
+        </form>
+
+
+        <form action="/phanloai" method="get">
+            <div class="input-group">
+                <input type="hidden" name="search" class="form-control" value="5to30">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary">Từ 5 đến 30 triệu</button>
+                </span>
+            </div>
+        </form>
+
+        <form action="/phanloai" method="get">
+            <div class="input-group">
+                <input type="hidden" name="search" class="form-control" value="5to30">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary">Từ 5 đến 30 triệu</button>
+                </span>
+            </div>
+        </form>
+
+        <form action="/phanloai" method="get">
+            <div class="input-group">
+                <input type="hidden" name="search" class="form-control" value="5to30">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary">Từ 5 đến 30 triệu</button>
+                </span>
+            </div>
+        </form>
+
+        <form action="/phanloai" method="get">
+            <div class="input-group">
+                <input type="hidden" name="search" class="form-control" value="5to30">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary">Từ 5 đến 30 triệu</button>
+                </span>
+            </div>
+        </form>
+
+    </div>
+</div>
+<br>
+
+<br>
+
+
+@endsection

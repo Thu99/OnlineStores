@@ -1,0 +1,234 @@
+/*header*/
+header {
+    /* background-color: #f00f0f;*/
+    background-color: #fed700;
+}
+header ul li {
+    list-style: none;
+}
+header ul li a {
+    color: #666666;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    color: white;
+    /*background-color: brown;*/
+}
+
+.logo a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 500;
+}
+.my-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.my-col .login a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.my-col .signup a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.list-product:hover {
+    border: 2px solid #f08080;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 10px rgba(216, 156, 156, 0.5);
+}
+
+/* Banner */
+.img {
+    height: 290px;
+}
+.img1 {
+    height: 145px;
+}
+
+/*end banner */
+
+.my-option {
+    border: 1px solid #f08080;
+    height: 100px;
+    width: 350px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.cart {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+    .my-col {
+        display: none;
+    }
+}
+/*Back to */
+#back {
+    margin: 10px 0 20px !important;
+    color: #666666;
+    font-size: 13px;
+    font-weight: bold;
+}
+#back a {
+    color: #666666;
+    font-weight: bold;
+}
+
+/*footer*/
+
+#footer-icon a {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px 50px;
+    font-size: 2em;
+}
+.social:hover {
+    font-size: 50px;
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
+}
+#social-fb {
+    color: #3b5998;
+}
+#social-tw {
+    color: #4099ff;
+}
+#social-yt {
+    color: #d34836;
+}
+#social-in {
+    color: #e67531;
+}
+
+/*form login*/
+.form-login {
+    padding: 50px 0 50px 0;
+    background-color: #efefef;
+}
+.my-form {
+    width: 800px;
+    height: 420px;
+    padding: 45px 120px;
+    background-color: white;
+}
+
+/*form signup*/
+.form-signup {
+    width: 800px;
+    height: 800px;
+    padding: 45px 120px;
+    background-color: white;
+}
+/* product
+*/
+.add-item span {
+    border: 1px solid #b3b3b3;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.add-item span:hover {
+    background-color: skyblue;
+}
+.details label {
+    font-size: 17px;
+    font-weight: bold;
+}
+.details span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/*Contact*/
+#contact {
+    background: #303437;
+    color: white;
+    padding: 30px 0;
+}
+
+.text-contact {
+    padding: 10px 15px;
+}
+textarea {
+    height: 175px;
+    width: 500px;
+}
+
+.img-product {
+    position: relative;
+    z-index: 1;
+}
+.img-product:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(background.jpg) center center;
+    opacity: 0.1;
+}
+
+.filter .manu a {
+    float: left;
+    width: 16.6%;
+    border: 1px solid #e67531;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    margin: 0 0 -1px -1px;
+    color: #288ad6;
+    text-align: center;
+}
+
+.filter .manu a img {
+    max-height: 90%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.filter {
+    padding: 10px 10px;
+}
+
+/*Detail product*/
+
+.parameter li {
+    list-style: none;
+}
+.my-right h3 {
+    position: relative;
+    left: 35px;
+}
+.my-right button {
+    position: relative;
+    left: 35px;
+    padding: 15px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 20px;
+}
