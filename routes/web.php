@@ -20,8 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+/*
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome');*/
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+/*Product */
+Route::get('/', 'ProductController@index')->name('welcome');
+Route::get('/{slug}', 'ProductController@show')->name('product.show');

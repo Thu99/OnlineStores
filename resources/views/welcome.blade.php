@@ -24,6 +24,7 @@
         </div>
 
     </div>
+
 </main>
 
 <div class="filter">
@@ -95,8 +96,24 @@
     </div>
 </div>
 <br>
+<div class="container">
+    <div class="row">
+        @foreach ($product as $product)
+        <div class="card col-sm-6 col-md-3 text-center list-product">
+            <img class=" card-img-top mx-auto " src="{{asset('img/products/'.$product-> img_main)}}"
+                alt="Card image cap" style="height: 180px; width: 180px;">
+            <div class="card-body">
+                <h5 class="card-title">{{$product-> product_name}} </h5>
+                <h5 class="card-title">{{$product-> price}} đ</h5>
+                <a href="/{{$product-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
+            </div>
+        </div>
+        @endforeach
 
+    </div>
+</div>
 <br>
+
 
 
 @endsection
