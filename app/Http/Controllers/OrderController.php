@@ -49,7 +49,8 @@ class OrderController extends Controller
             'user_id' => $id
         ]);
         Cart::destroy();
-        return redirect('/');
+        session()->flash('successes', 'Bạn đã đặt hàng thành công !');
+        return redirect('/onlinestores');
     }
 
     /**

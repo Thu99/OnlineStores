@@ -1,5 +1,6 @@
 <?php
 
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -14,28 +15,34 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
 /*
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');*/
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+})->name('welcome');
+*/
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /*Product */
-Route::get('/', 'ProductController@index')->name('welcome');
-Route::get('/{slug}', 'ProductController@show')->name('product.show');
+Route::get('/onlinestores', 'ProductController@index')->name('welcome');
+Route::get('/onlinestores/{slug}', 'ProductController@show')->name('product.show');
+/*
+Route::get('/{slug}', function () {
+    return view('product');
+});
+*/
+
+
+//Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 /*Shopping Cart */
-Route::get('mobile/cart', 'ShoppingCartController@index')->name('cart.index');
-Route::post('mobile/cart/add', 'ShoppingCartController@store')->name('cart.store');
-Route::delete('mobile/cart/{rowId}', 'ShoppingCartController@destroy')->name('cart.destroy');
-Route::get('mobile/cart/remove', function () {
+Route::get('onlinestores/mobile/cart', 'ShoppingCartController@index')->name('cart.index');
+Route::post('onlinestores/mobile/cart/add', 'ShoppingCartController@store')->name('cart.store')->middleware('auth');
+Route::delete('onlinestores/mobile/cart/{rowId}', 'ShoppingCartController@destroy')->name('cart.destroy');
+Route::get('onlinestores/mobile/cart/remove', function () {
     Cart::destroy();
     return back();
 })->name('destroyall');
@@ -47,3 +54,8 @@ Route::post('mobile/checkout/add', 'CheckoutController@store')->name('checkout.s
 
 /*Order */
 Route::post('m/order/add', 'OrderController@store')->name('order.store');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

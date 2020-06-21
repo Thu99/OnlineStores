@@ -3,7 +3,14 @@
 
 
 <!---End header-->
-
+@if(session()->has('successes'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Thông báo !</strong> {{session()->get('successes')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 
 <br>
 <main>
@@ -33,10 +40,8 @@
         <a href="/dtdd-samsung" data-id="2" class=""><img src="{{ asset('img/logo/samsung.jpg')}}"></a>
         <a href="/dtdd-oppo" data-id="1971" class=""><img src="{{ asset('img/logo/oppo.png')}}"></a>
         <a href="/dtdd-xiaomi" data-id="2235" class=""><img src="{{ asset('img/logo/xiaomi.jpg')}}"></a>
-        <a href="/dtdd-vivo" data-id="2236" class=""><img src="{{ asset('img/logo/xiaomi.jpg')}}"></a>
-
+        <a href="/dtdd-vivo" data-id="2236" class=""><img src="{{ asset('img/logo/vivo.jpg')}}"></a>
         <a href="/dtdd-vsmart" data-id="17566" class=""><img src="{{ asset('img/logo/vsmart.png')}}"></a>
-
     </div>
 </div>
 <br>
@@ -105,7 +110,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$product-> product_name}} </h5>
                 <h5 class="card-title">{{$product-> price}} đ</h5>
-                <a href="/{{$product-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
+                <a href="/onlinestores/{{$product-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
             </div>
         </div>
         @endforeach

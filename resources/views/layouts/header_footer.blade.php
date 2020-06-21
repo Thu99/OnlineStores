@@ -23,7 +23,7 @@
         <div class="row justify-content-end ">
             <div class="col-xl-2">
                 <div class="logo">
-                    <a href="/">Thegioididong.com</a>
+                    <a href="{{route('welcome')}} ">OnlineStores</a>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
 
                 &nbsp;&nbsp;&nbsp;
                 <div class="cart">
-                    <a href="shoppingcart.html" class="btn btn-dark">
+                    <a href="{{ route('cart.index') }}" class="btn btn-dark">
 
                         <span><i class="fas fa-shopping-cart"></i></span>
                         <span>Giỏ hàng</span>
