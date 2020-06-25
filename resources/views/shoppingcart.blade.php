@@ -29,15 +29,16 @@
 
             <div class="row">
                 <div class="col-2 text-center">
-                    <img class="img-responsive img-thumbnail" src="{{asset('img/products/'.$productCart->model->img)}}"
-                        alt=" prewiew" width="90px" height="90px" style="border: 1px solid #928C8C;">
+                    <img class="img-responsive img-thumbnail"
+                        src="{{asset('img/products/'.$productCart->model-> img_main)}}" alt=" prewiew" width="90px"
+                        height="90px" style="border: 1px solid #928C8C;">
                 </div>
                 <div class="col-3">
                     <h4 class="product-name"><strong>{{$productCart-> name}} </strong></h4>
                 </div>
                 <div class="col-7 text-md-right row">
                     <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                        <h5><strong>{{$productCart-> price}} </strong></h5>
+                        <h5><strong>{{number_format($productCart-> price)}} ₫</strong></h5>
                     </div>
 
                     <div class="col-4">
@@ -88,7 +89,7 @@
 
 
             <div class="clearfix">
-                <div class="float-right"> Tổng tiền : <b>{{Cart::subtotal()}}</b></div>
+                <div class="float-right"> Tổng tiền : <b>{{Cart::subtotal()}} ₫</b></div>
             </div>
             <hr>
             <div class="clearfix">

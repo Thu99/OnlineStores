@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>OnlineStores</title>
     <!-- CSS here -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -28,16 +28,20 @@
             </div>
 
             <div class="col-xl-5 col-lg-8 col-md-9 col-sm-5 my-col">
+                <form action="{{route('search')}} " method="get">
+                    <div class="input-group">
 
-                <div class="input-group">
-                    <input style="width: 280px;" type="email" class="form-control" placeholder="Bạn tìm gì ...">
-                    <span class="input-group-prepend">
-                        <button type="submit" class="btn btn-dark"><i class="fa fa-search"
-                                aria-hidden="true"></i></button>
-                    </span>
-                </div>
+                        <input style="width: 500px;" name="name" autocomplete="off" class="form-control"
+                            placeholder="Bạn tìm gì ...">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-dark"><i class="fa fa-search"
+                                    aria-hidden="true"></i></button>
+                        </span>
+
+                    </div>
+                </form>
             </div>
-            </>
+
             <!----->
             <div class="col-xl-5 align-self-center my-col">
                 @if (Route::has('login'))

@@ -43,8 +43,9 @@
 
             <div class="row">
                 <div class="col-2 text-center">
-                    <img class="img-responsive img-thumbnail" src="{{asset('img/products/'.$productCart->model->img)}}"
-                        alt="prewiew" width="60px" height="60px" style="border: 1px solid #928C8C">
+                    <img class="img-responsive img-thumbnail"
+                        src="{{asset('img/products/'.$productCart->model-> img_main)}}" alt="prewiew" width="60px"
+                        height="60px" style="border: 1px solid #928C8C">
                 </div>
                 <div class="col-4">
                     <h6 class="product-name">{{$productCart->name}}</h6>
@@ -54,7 +55,7 @@
                         <h6>{{$productCart-> qty}}</h6>
                     </div>
                     <div class="col-6">
-                        <h6>{{$productCart-> price}} </h6>
+                        <h6>{{number_format($productCart-> price)}} ₫</h6>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
 
             <div class="clearfix">
 
-                <div class="float-right"> Tổng tiền : <b>{{ Cart::subtotal()}} </b> VNĐ</div>
+                <div class="float-right"> Tổng tiền : <b>{{ Cart::subtotal()}} </b> ₫</div>
 
             </div>
 
@@ -110,7 +111,7 @@
                 <input type="hidden" name="shipping_phone" value="{{ Session::get('phone') }}"></input>
                 <input type="hidden" name="shipping_address" value="{{ Session::get('address') }}"></input>
                 <input type="hidden" name="shipping_notes" value="{{ Session::get('notes') }}"></input>
-                <input type="hidden" name="total" value="{{Cart::total()}} "></input>
+                <input type="hidden" name="total" value="{{Cart::subtotal()}} "></input>
 
 
                 <button class="btn btn-outline-success"> XÁC NHẬN THANH TOÁN</button>
