@@ -78,8 +78,31 @@
         @endforeach
     </div>
 </div>
-</div>
+
+<hr>
+
 <br>
+
+<div class="container">
+    <h4>Sản phẩm tương tự</h4>
+    <br>
+    <div class="row">
+        @foreach ($similarProduct as $products)
+        <div class="card col-sm-6 col-md-3 text-center list-product">
+            <img class=" card-img-top mx-auto " src="{{asset('img/products/'.$products-> img_main)}}"
+                alt="Card image cap" style="height: 180px; width: 180px;">
+            <div class="card-body">
+                <h5 class="card-title">{{$products-> product_name}} </h5>
+                <h5 class="card-title">{{number_format($products-> price)}} ₫</h5>
+
+                <a href="/onlinestores/{{$products-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+
 </div>
+
 
 @endsection

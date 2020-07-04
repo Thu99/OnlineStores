@@ -41,6 +41,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 /*Search function*/
 Route::get('/search', 'SearchController@search')->name('search');
 Route::get('/searchPrice', 'SearchController@price')->name('price');
+Route::get('/sort', 'SearchController@sort')->name('sort');
+
 /*Shopping Cart */
 Route::get('onlinestores/mobile/cart', 'ShoppingCartController@index')->name('cart.index');
 Route::post('onlinestores/mobile/cart/add', 'ShoppingCartController@store')->name('cart.store')->middleware('auth');

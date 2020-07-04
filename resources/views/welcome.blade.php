@@ -112,73 +112,111 @@
 <br>
 <div class="container">
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-between">
 
-        <label style="font-weight: bold;">Chọn mức giá</label>
-        &nbsp; &nbsp;
-        <form action="{{route('price')}} " method="get">
-            <div class="input-group">
-                <input type="hidden" name="search" class="form-control" value="2to5">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Từ 2 đến 5 triệu</button>
-                </span>
+        <div class="col-10">
+            <div class="row">
+                <label style="font-weight: bold;">Chọn mức giá</label>
+                &nbsp; &nbsp;
+                <form action="{{route('price')}} " method="get">
+                    <div class="input-group">
+                        <input type="hidden" name="search" class="form-control" value="2to5">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-primary">Từ 2 đến 5 triệu</button>
+                        </span>
+                    </div>
+                </form>
+
+
+                <form action="{{route('price')}}" method="get">
+                    <div class="input-group">
+                        <input type="hidden" name="search" class="form-control" value="5to10">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-primary">Từ 5 đến 10 triệu</button>
+                        </span>
+                    </div>
+                </form>
+
+                <form action="{{route('price')}}" method="get">
+                    <div class="input-group">
+                        <input type="hidden" name="search" class="form-control" value="10to15">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-primary">Từ 10 đến 15 triệu</button>
+                        </span>
+                    </div>
+                </form>
+
+                <form action="{{route('price')}}" method="get">
+                    <div class="input-group">
+                        <input type="hidden" name="search" class="form-control" value="15to20">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-primary">Từ 15 đến 20 triệu</button>
+                        </span>
+                    </div>
+                </form>
+
+                <form action="{{route('price')}}" method="get">
+                    <div class="input-group">
+                        <input type="hidden" name="search" class="form-control" value="over20">
+                        <span class="input-group-prepend">
+                            <button type="submit" class="btn btn-primary">Trên 20 triệu</button>
+                        </span>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
 
+        <div class="col-2">
 
-        <form action="{{route('price')}}" method="get">
-            <div class="input-group">
-                <input type="hidden" name="search" class="form-control" value="5to10">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Từ 5 đến 10 triệu</button>
-                </span>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sắp xếp
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <form action="{{route('sort')}}" method="get">
+
+                        <input type="hidden" name="sort" class="form-control" value="asc">
+                        <button class="btn btn-primary">Giá tăng dần</button>
+                    </form>
+                    <form action="{{route('sort')}}" method="get">
+
+                        <input type="hidden" name="sort" class="form-control" value="desc">
+                        <button class="btn btn-primary">Giá giảm dần</button>
+                    </form>
+
+                </div>
+
             </div>
-        </form>
-
-        <form action="{{route('price')}}" method="get">
-            <div class="input-group">
-                <input type="hidden" name="search" class="form-control" value="10to15">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Từ 10 đến 15 triệu</button>
-                </span>
-            </div>
-        </form>
-
-        <form action="{{route('price')}}" method="get">
-            <div class="input-group">
-                <input type="hidden" name="search" class="form-control" value="15to20">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Từ 15 đến 20 triệu</button>
-                </span>
-            </div>
-        </form>
-
-        <form action="{{route('price')}}" method="get">
-            <div class="input-group">
-                <input type="hidden" name="search" class="form-control" value="over20">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Trên 20 triệu</button>
-                </span>
-            </div>
-        </form>
+        </div>
 
     </div>
+
 </div>
+<br>
+
 <br>
 <div class="container">
     <div class="row">
-        @foreach ($product as $product)
+        @foreach ($product as $products)
         <div class="card col-sm-6 col-md-3 text-center list-product">
-            <img class=" card-img-top mx-auto " src="{{asset('img/products/'.$product-> img_main)}}"
+            <img class=" card-img-top mx-auto " src="{{asset('img/products/'.$products-> img_main)}}"
                 alt="Card image cap" style="height: 180px; width: 180px;">
             <div class="card-body">
-                <h5 class="card-title">{{$product-> product_name}} </h5>
-                <h5 class="card-title">{{number_format($product-> price,0)}} ₫</h5>
-                <a href="/onlinestores/{{$product-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
+                <h5 class="card-title">{{$products-> product_name}} </h5>
+                <h5 class="card-title">{{number_format($products-> price)}} ₫</h5>
+
+                <a href="/onlinestores/{{$products-> slug}}" class="btn btn-dark">XEM CHI TIẾT</a>
             </div>
         </div>
         @endforeach
 
+    </div>
+    <br>
+    <div class="row ">
+        <div class="col-12 d-flex justify-content-center ">
+            {{$product->links()}}
+        </div>
     </div>
 </div>
 <br>

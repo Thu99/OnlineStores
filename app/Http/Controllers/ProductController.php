@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        // $product = Product::all();
+        $product = DB::table('products')->paginate(8);
         return view('welcome', [
             'product' => $product
         ]);
@@ -49,9 +51,17 @@ class ProductController extends Controller
      */
     public function show($slug)
     {
+        //Get product with multiple img
         $product = \App\Product::with('image')->where('slug', $slug)->get();
+        //Get price of product
+        $price = $product[0]['price'];
+
+        $similarProduct = \App\Product::whereBetween('price', [$price - 3000000, $price + 3000000])
+            ->where('slug', '!=', $slug)->limit(4)->get();
         return view('product', [
-            'product' => $product
+            'product' => $product,
+            'similarProduct' => $similarProduct
+
         ]);
     }
 
