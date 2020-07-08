@@ -58,6 +58,9 @@
                                          document.getElementById('logout-form').submit();">
                                 Đăng Xuất
                             </a>
+                            <a class="dropdown-item" href="/favorite">
+                                Sản phẩm yêu thích
+                            </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf

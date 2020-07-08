@@ -40,4 +40,8 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany('App\Order');
     }
+    public function favoriteProduct()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }

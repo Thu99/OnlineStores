@@ -28,6 +28,11 @@ Auth::routes();
 /*Product */
 Route::get('/onlinestores', 'ProductController@index')->name('welcome');
 Route::get('/onlinestores/{slug}', 'ProductController@show')->name('product.show');
+/*End Product*/
+
+/* Favorite Product*/
+Route::get('/favorite', 'FavoriteProductController@index');
+Route::post('/favorite/add', 'FavoriteProductController@store')->name('addFavoriteProduct');
 /*
 Route::get('/{slug}', function () {
     return view('product');
