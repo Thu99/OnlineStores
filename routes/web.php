@@ -32,7 +32,8 @@ Route::get('/onlinestores/{slug}', 'ProductController@show')->name('product.show
 
 /* Favorite Product*/
 Route::get('/favorite', 'FavoriteProductController@index');
-Route::post('/favorite/add', 'FavoriteProductController@store')->name('addFavoriteProduct');
+Route::post('/favorite/add', 'FavoriteProductController@store')->name('addFavoriteProduct')->middleware('auth');
+Route::post('/favorite/delete', 'FavoriteProductController@destroy')->name('deleteFavoriteProduct');
 /*
 Route::get('/{slug}', function () {
     return view('product');
@@ -47,6 +48,11 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/search', 'SearchController@search')->name('search');
 Route::get('/searchPrice', 'SearchController@price')->name('price');
 Route::get('/sort', 'SearchController@sort')->name('sort');
+
+/*Comment*/
+Route::post('comment/add', 'CommentController@store')->name('comment.store');
+Route::delete('comment/delete', 'CommentController@destroy')->name('comment.delete');
+/*End Comment */
 
 /*Shopping Cart */
 Route::get('onlinestores/mobile/cart', 'ShoppingCartController@index')->name('cart.index');

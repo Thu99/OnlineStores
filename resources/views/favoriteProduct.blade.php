@@ -20,9 +20,15 @@
                         <h5 class="card-title">{{$fa-> product_name}} </h5>
                         <h5 class="card-title">{{number_format($fa-> price)}} ₫</h5>
 
-                        <a href="/{{$fa-> slug}}" class="btn btn-dark col-8">XEM CHI TIẾT</a>
+                        <div class="row">
+                            <a href="/{{$fa-> slug}}" class="btn btn-dark col-8">XEM CHI TIẾT</a>
 
-
+                            <form action="{{route('deleteFavoriteProduct')}} " method="post" class="col-4">
+                                @csrf
+                                <input type="hidden" value="{{$fa -> id}}" name="id">
+                                <button class="btn btn-success">Dislike</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 

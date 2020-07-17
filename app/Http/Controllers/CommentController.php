@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class FavoriteProductController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +15,7 @@ class FavoriteProductController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-        //  dd($id);
-        $user = \App\User::find($id);
-        //  $user->favoriteProduct()->attach(1);
-        //  dd($user->favoriteProduct);
-        return view('favoriteProduct', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**
@@ -42,23 +36,22 @@ class FavoriteProductController extends Controller
      */
     public function store(Request $request)
     {
-        $idProduct = request('id');
-        $idUser = Auth::id();
-        //  dd($idProduct);
-        $user = \App\User::find($idUser);
-        $user->favoriteProduct()->attach($idProduct);
-        //dd($user->favoriteProduct);
+        Comment::create([
+            'content' =>  request('content'),
+            'product_id' => request('idProduct'),
+            'user_id' => Auth::id()
+        ]);
 
-        return redirect()->route('welcome');
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comment $comment)
     {
         //
     }
@@ -66,10 +59,10 @@ class FavoriteProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -78,10 +71,10 @@ class FavoriteProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -89,18 +82,14 @@ class FavoriteProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Comment $comment)
     {
-        $idProduct = request('id');
-        $idUser = Auth::id();
-        //  dd($idProduct);
-        $user = \App\User::find($idUser);
-        $user->favoriteProduct()->detach($idProduct);
-        //dd($user->favoriteProduct);
+        $idComment = Comment::find(request('idComment'));
+        $idComment->delete();
 
-        return redirect()->route('welcome');
+        return back();
     }
 }

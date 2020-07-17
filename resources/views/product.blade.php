@@ -102,7 +102,44 @@
 
     </div>
 
+    <br>
+    <hr>
+
+    <!---->
+    <h2>Bình luận</h2>
+    <br>
+    <div class="row">
+        <form action="{{route('comment.store')}}" method="post">
+            @csrf
+            <input type="hidden" name="idProduct" value="{{$product->id}}">
+            <textarea style="width:900px;" name="content" placeholder="Nhập bình luận của bạn ..."></textarea>
+            <div>
+                <button class="btn btn-success">Gửi</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+    @foreach ($comment as $comment)
+    <div>
+        <h5><b>{{$comment->user->name}} </b></h5>
+        <p style="color: #c2c2a3">{{$comment->created_at}} </p>
+        <p>{{$comment->content}} </p>
+        @if(Auth::id()==$comment->user_id)
+        <form action="{{route('comment.delete')}}" method="post">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="idComment" value="{{$comment->id}} ">
+            <button class="btn btn-danger">Xóa</button>
+        </form>
+        @endif
+    </div>
+    <hr>
+    @endforeach
+
 </div>
+
+
 
 
 @endsection

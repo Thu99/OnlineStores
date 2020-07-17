@@ -205,8 +205,9 @@
             <div class="card-body">
                 <h5 class="card-title">{{$products-> product_name}} </h5>
                 <h5 class="card-title">{{number_format($products-> price)}} ₫</h5>
+
                 <div class="row">
-                    <a href="/{{$products-> slug}}" class="btn btn-dark col-8">XEM CHI TIẾT</a>
+                    <a href="/onlinestores/{{$products-> slug}}" class="btn btn-dark col-8">XEM CHI TIẾT</a>
 
                     <form action="{{route('addFavoriteProduct')}} " method="post" class="col-4">
                         @csrf

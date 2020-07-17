@@ -83,7 +83,7 @@
 
 
 
-                    <label for="name" class="col-sm-2 col-form-label">{{ Session::get('name') }}</label>
+                    <label for="name" class="col-sm-2 col-form-label text-left">{{ Session::get('name') }}</label>
 
 
 
@@ -91,17 +91,18 @@
 
                 <div class="form-group row">
                     <label for="phone" class="col-sm-2 col-form-label text-left">Số điện thoại</label>
-                    <label for="phone" class="col-sm-2 col-form-label">{{ Session::get('phone') }}</label>
+                    <label for="phone" class="col-sm-10 col-form-label text-left">{{ Session::get('phone') }}</label>
                 </div>
 
                 <div class="form-group row ">
                     <label for="address" class="col-sm-2 col-form-label text-left">Địa chỉ</label>
-                    <label for="address" class="col-sm-2 col-form-label">{{ Session::get('address') }}</label>
+                    <label for="address"
+                        class="col-sm-10 col-form-label text-left">{{ Session::get('address') }}</label>
 
                 </div>
                 <div class="form-group row ">
                     <label for="notes" class="col-sm-2 col-form-label text-left">Ghi chú</label>
-                    <label for="notes" class="col-sm-2 col-form-label">{{ Session::get('notes') }}</label>
+                    <label for="notes" class="col-sm-10 col-form-label text-left">{{ Session::get('notes') }}</label>
 
                 </div>
             </form>

@@ -58,10 +58,15 @@ class ProductController extends Controller
 
         $similarProduct = \App\Product::whereBetween('price', [$price - 3000000, $price + 3000000])
             ->where('slug', '!=', $slug)->limit(4)->get();
+
+
+        $productId = \App\Product::where('slug', $slug)->get();
+        $comment = \App\Comment::where('product_id', $productId[0]['id'])->with('user')->get();
+
         return view('product', [
             'product' => $product,
-            'similarProduct' => $similarProduct
-
+            'similarProduct' => $similarProduct,
+            'comment' => $comment
         ]);
     }
 
